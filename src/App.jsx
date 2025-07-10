@@ -1,15 +1,21 @@
-import { useState } from 'react'
-import './App.css'
-import Game from './pages/Game'
+import "./App.css";
+import Game from "./pages/Game";
+import { Container } from "react-bootstrap";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import AdminQuestions from "./pages/AdminQuestions";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <Game />
-    </>
-  )
+    <Container>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Game />} />
+          <Route path="/game" element={<Game />} />
+          <Route path="/admin" element={<AdminQuestions />} />
+        </Routes>
+      </BrowserRouter>
+    </Container>
+  );
 }
 
-export default App
+export default App;
